@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Heart, Menu, ShoppingCart, User } from "lucide-react";
+import { Heart, Menu, Search, ShoppingCart, User } from "lucide-react";
 
 export const Header = () => {
   return (
@@ -23,22 +23,28 @@ export const Header = () => {
           <li>
             <Link href="/about">About</Link>
           </li>
-          <li>
-            <Link href="/about">About</Link>
-          </li>
         </ul>
       </nav>
 
       <div className="flex items-center gap-8">
-        <input
-          type="search"
-          placeholder="What are you looking for?"
-          className="hidden md:flex p-1.5 border rounded"
-        />
+        <div className="hidden md:flex items-center border rounded bg-accent px-2">
+          <input
+            type="search"
+            placeholder="What are you looking for?"
+            className="p-2.5 focus:border-none focus:outline-none bg-transparent placeholder:text-sm"
+          />
+          <Search size="20" />
+        </div>
 
         <div className="flex items-center gap-4">
-          <Heart />
-          <ShoppingCart />
+          <Link href="wishlist">
+            <Heart />
+          </Link>
+
+          <Link href="cart">
+            <ShoppingCart />
+          </Link>
+
           <div>
             <User />
           </div>
