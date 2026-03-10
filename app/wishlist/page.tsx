@@ -25,9 +25,11 @@ const wishlistItems = [
 export default function WishlistPage() {
   return (
     <div className="flex min-h-screen">
-      <main className="flex min-h-screen w-full flex-col items-center gap-20 py-32 bg-white dark:bg-black sm:items-start">
+      <main className="flex min-h-screen w-full flex-col items-center gap-20 px-4 md:px-0 lg:px-8 py-8 md:py-12 lg:py-16 bg-white dark:bg-black sm:items-start">
         <div className="flex items-center justify-between w-full">
-          <p className="text-lg">Wishlist ({wishlistItems.length})</p>
+          <p className="text-sm md:text-base lg:text-lg">
+            Wishlist ({wishlistItems.length})
+          </p>
           <Button className="cursor-pointer py-5 px-4" variant="default">
             Move All To Bag
           </Button>
@@ -37,7 +39,7 @@ export default function WishlistPage() {
           {wishlistItems.map((item) => (
             <div
               key={item.id}
-              className="flex items-center justify-between space-x-4 p-5 border-b last:border-b-0"
+              className="flex items-center justify-between space-x-4 p-2.5 md:p-4 border-b last:border-b-0"
             >
               <div className="flex gap-5">
                 <img
@@ -47,11 +49,17 @@ export default function WishlistPage() {
                 />
                 <div className="flex flex-col justify-between gap-2 flex-1">
                   <div>
-                    <h3 className="text-lg font-semibold">{item.name}</h3>
-                    <p className="text-sm text-gray-500">{item.category}</p>
+                    <h3 className="text-sm md:text-base lg:text-lg font-semibold">
+                      {item.name}
+                    </h3>
+                    <p className="text-sm md:text-base lg:text-lg text-gray-500">
+                      {item.category}
+                    </p>
                   </div>
-                  <p className="text-xl font-bold">{item.price}</p>
-                  <p className="text-xs text-gray-400">
+                  <p className="text-sm md:text-base lg:text-lg font-bold">
+                    {item.price}
+                  </p>
+                  <p className="text-sm md:text-base lg:text-lg text-gray-400">
                     Added at: {new Date(item.addedAt).toLocaleDateString()}
                   </p>
                 </div>
